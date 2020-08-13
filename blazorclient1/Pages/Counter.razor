@@ -1,0 +1,19 @@
+﻿@page "/counter"
+@inject Models.Fees d;
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+<p>feeValue : @d.feeAmount</p>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        
+        d.feeAmount = currentCount;
+        Console.WriteLine(currentCount);
+        currentCount++;
+    }
+}

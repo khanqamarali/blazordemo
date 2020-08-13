@@ -1,0 +1,20 @@
+﻿@page "/CsharpFromJavascript"
+@inject IJSRuntime Js;
+
+<h3>CsharpFromJavascript</h3>
+<button @onclick="@raiseJavafunc">Message</button>
+@code {
+
+
+    async Task raiseJavafunc()
+    {
+        await Js.InvokeVoidAsync("my_callToCShap");
+    }
+
+
+    [JSInvokable]
+    public static string CallfromJavaScript()
+    {
+        return "Hello from C#";
+    }
+}

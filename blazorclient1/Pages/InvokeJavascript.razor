@@ -1,0 +1,16 @@
+﻿@page "/InvokeJavascript";
+@inject IJSRuntime Js;
+<h3>InvokeJavascript</h3>
+<p>@display</p>
+<button @onclick="@raiseJavaScript" >Message</button>
+
+@code {
+    String display = "";
+    async Task raiseJavaScript()
+    {
+        var confirm = await Js.InvokeAsync<bool>("confirm", "Show Confirmation");
+        if (confirm)
+        { display = "Confimed"; }
+        Console.WriteLine("Hello");
+    }
+}

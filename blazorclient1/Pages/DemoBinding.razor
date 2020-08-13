@@ -1,0 +1,22 @@
+﻿@page "/DemoBinding";
+<h3>DemoBinding</h3>
+<p>@ChangeValues</p>
+
+<input type="text" @bind="@ChangeValues" />
+
+<button @onclick="resetValue">Clear</button>
+@code {
+    public string ChangeValues;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ChangeValues = "Hello Work";
+
+    }
+
+     void resetValue()
+    {
+        ChangeValues = "";
+    }
+
+}

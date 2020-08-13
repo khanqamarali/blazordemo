@@ -1,0 +1,13 @@
+﻿@page "/ddi/DiComp";
+@inject Models.IFees fbj
+    <h3>@demodata</h3>
+
+@code {
+       string demodata = "";
+    protected override void OnInitialized()
+    {
+     
+        demodata = fbj.GetFees().ToList().FirstOrDefault();
+
+    }
+}
